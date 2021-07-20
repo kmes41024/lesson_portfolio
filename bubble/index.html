@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html style="background-color:#E0E0E0">
+    <head>
+        <meta charset="utf-8">
+        <title>Bubble</title>
+        <link rel="stylesheet" href="bubble.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <script>
+        var chatCount = 6;
+        function pushHeart(heartNum)
+        {
+            var heartColor = document.getElementById("heart" + heartNum).style.color;
+            if(heartColor == "grey")
+                document.getElementById("heart" + heartNum).style.color = "red";
+            else
+            document.getElementById("heart" + heartNum).style.color = "grey";
+        }
+
+        function pushDel(delNum)
+        {
+            document.getElementById('chat' + delNum).innerHTML = "<div class = 'text' style = 'color:grey;'>您已收回訊息</div>";
+        }
+
+        function addData()
+        {
+            chatCount = chatCount + 1;
+            var content = document.getElementById('addContent').value;
+            
+            if(document.getElementById('choice').value == "阿柴")
+            {
+                var addStr = '<div class="chatEven"><img src="pic2.jpg"><div class="triAngleToRight"></div><div class="textLeft" id = "chat' + chatCount + '"><div class = "text">' + content 
+                    + '</div><div class = "heart" style = "margin-top: 40px;"><i class="fa fa-trash" aria-hidden="true" style="font-size:24px;color:grey;" onclick = "pushDel('
+                    + chatCount + ')" id = "del' + chatCount + '"></i>&nbsp&nbsp&nbsp&nbsp<i class="fa fa-heart" style="font-size:24px;color:grey;" onclick = "pushHeart(' 
+                    + chatCount + ')" id = "heart' + chatCount + '"></i>&nbsp&nbsp</div></div></div>';
+
+                document.getElementById('chats').innerHTML += addStr;
+                document.getElementById('addContent').value = ""
+            }
+            else
+            {
+                var addStr = '<div class="chatOdd"><img src="pic1.jpg"><div class="triAngleToLeft"></div><div class="textRight" id = "chat' + chatCount + '"><div class = "text">' + content
+                    + '</div><div class = "heart" style = "margin-top: 40px;"><i class="fa fa-trash" aria-hidden="true" style="font-size:24px;color:grey;" onclick = "pushDel(' 
+                    + chatCount + ')" id = "del' + chatCount + '"></i>&nbsp&nbsp&nbsp&nbsp<i class="fa fa-heart" style="font-size:24px;color:grey;" onclick = "pushHeart('
+                    + chatCount + ')" id = "heart' + chatCount + '"></i>&nbsp&nbsp</div></div></div>';
+
+                    document.getElementById('chats').innerHTML += addStr;
+            }
+        }
+    </script>
+    <body>
+        <div id = "chats">
+            <div class="chatOdd">
+                <img src="pic1.jpg">
+                <div class="triAngleToLeft"></div>
+                <div class="textRight" id = "chat1">
+                    <div class = "text">我沒有哭，我只是剛好眼淚流出了眼眶</div>
+                    <div class = "heart" style = "margin-top: 40px;">
+                        <i class="fa fa-trash" aria-hidden="true" style="font-size:24px;color:grey;" onclick = "pushDel(1)" id = "del1"></i>&nbsp&nbsp&nbsp&nbsp
+                        <i class="fa fa-heart" style="font-size:24px;color:grey;" onclick = "pushHeart(1)" id = "heart1"></i>&nbsp&nbsp
+                    </div>
+                </div>
+            </div>
+            <div class="chatEven">
+                <img src="pic2.jpg">
+                <div class="triAngleToRight"></div>
+                <div class="textLeft" id = "chat2">
+                    <div class = "text">想到要離開那個人，我就孤獨到不能自己，恍如整個宇宙只剩下我一人</div>
+                    <div class = "heart" style = "margin-top: 40px;">
+                        <i class="fa fa-trash" aria-hidden="true" style="font-size:24px;color:grey;" onclick = "pushDel(2)" id = "del2"></i>&nbsp&nbsp&nbsp&nbsp
+                        <i class="fa fa-heart" style="font-size:24px;color:grey;" onclick = "pushHeart(2)" id = "heart2"></i>&nbsp&nbsp
+                    </div>
+                </div>
+            </div>
+            <div class="chatOdd">
+                <img src="pic1.jpg">
+                <div class="triAngleToLeft"></div>
+                <div class="textRight" id = "chat3">
+                    <div class = "text">我總是會做一個悲傷的夢，夢見她很愛我</div>
+                    <div class = "heart" style = "margin-top: 40px;">
+                        <i class="fa fa-trash" aria-hidden="true" style="font-size:24px;color:grey;" onclick = "pushDel(3)" id = "del3"></i>&nbsp&nbsp&nbsp&nbsp
+                        <i class="fa fa-heart" style="font-size:24px;color:grey;" onclick = "pushHeart(3)" id = "heart3"></i>&nbsp&nbsp
+                    </div>
+                </div>
+            </div>
+            <div class="chatEven">
+                <img src="pic2.jpg">
+                <div class="triAngleToRight"></div>
+                <div class="textLeft" id = "chat4">
+                    <div class = "text">如今我清楚地明白，時間的長短並不重要，重要的是能一同度過那段時間的人</div>
+                    <div class = "heart" style = "margin-top: 40px;">
+                        <i class="fa fa-trash" aria-hidden="true" style="font-size:24px;color:grey;" onclick = "pushDel(4)" id = "del4"></i>&nbsp&nbsp&nbsp&nbsp
+                        <i class="fa fa-heart" style="font-size:24px;color:grey;" onclick = "pushHeart(4)" id = "heart4"></i>&nbsp&nbsp
+                    </div>
+                </div>
+            </div>
+            <div class="chatOdd">
+                <img src="pic1.jpg">
+                <div class="triAngleToLeft"></div>
+                <div class="textRight" id = "chat5">
+                    <div class = "text">因為一想到在此刻在我眼前的，也許就是他最後的樣子，就會覺得那一刻，無比的珍貴</div>
+                    <div class = "heart" style = "margin-top: 40px;">
+                        <i class="fa fa-trash" aria-hidden="true" style="font-size:24px;color:grey;" onclick = "pushDel(5)" id = "del5"></i>&nbsp&nbsp&nbsp&nbsp
+                        <i class="fa fa-heart" style="font-size:24px;color:grey;"  onclick = "pushHeart(5)" id = "heart5"></i>&nbsp&nbsp
+                    </div>
+                </div>
+            </div>
+            <div class="chatEven">
+                <img src="pic2.jpg">
+                <div class="triAngleToRight"></div>
+                <div class="textLeft" id = "chat6">
+                    <div class = "text">愛情此物實在是非常可惡，對於不相信他的人，他會以更加強烈讓人無法抗拒的方式，席捲而來</div>
+                    <div class = "heart" style = "margin-top: 40px;">
+                        <i class="fa fa-trash" aria-hidden="true" style="font-size:24px;color:grey;" onclick = "pushDel(6)" id = "del6"></i>&nbsp&nbsp&nbsp&nbsp
+                        <i class="fa fa-heart" style="font-size:24px;color:grey;" onclick = "pushHeart(6)" id = "heart6"></i>&nbsp&nbsp
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id = "newData" style = "background-color: #A3D1D1;height:200px;width:500px;margin:0px auto;">
+            <div style = "padding: 20px 0px 0px 50px;">
+                新增對象: &nbsp&nbsp
+                <select style = "height:50px;width:300px" id="choice">
+                    <option>阿柴</option>
+                    <option>阿龍</option>
+                </select>
+            </div>
+            <div style = "padding: 20px 0px 0px 50px;">
+                新增內容: &nbsp&nbsp<input type = "text" style = "width:300px;height:50px" id = "addContent">
+            </div>
+            <div style = "padding: 20px 70px 0px 0px;text-align: right;">
+                <input type = "button" onclick = "addData()" value = "新增">
+            </div>
+        </div>
+    </body>
+</html>

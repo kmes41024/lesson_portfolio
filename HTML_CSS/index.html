@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My Web</title>
+        <link href = "https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel = "stylesheet">
+        <link href = "style.css" rel = "stylesheet">
+        <style>
+            html
+            {
+                text-align: center;
+                background: -webkit-radial-gradient(top left, #C4E1FF, #0080FF);
+                background: -moz-radial-gradient(top left, #C4E1FF, #0080FF);
+                background: radial-gradient(top left, #C4E1FF, #0080FF);
+            }
+
+        </style>
+    </head>
+    <script>
+        var rgb;
+        function out(num)
+        {
+            document.getElementById("title" + num).setAttribute("style","color:black");
+            document.getElementById("info" + num).setAttribute("style","color:black;font-size:1.6rem");
+        }
+
+        function over(num)
+        {
+            rgb = "rgb(" + Math.random()*255 + "," + Math.random()*255 + "," + Math.random()*255 + ")";
+            document.getElementById("title" + num).setAttribute("style", "color:" + rgb);
+            document.getElementById("info" + num).setAttribute("style","color:" + rgb + ";font-size:2rem");
+        }
+    </script>
+    <body>
+        <header>
+            <h1>大家一起來學網站開發</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href = "">首頁</a></li>
+                <li><a href = "images.html">圖文示例</a></li>
+                <li><a href = "myNote.html">課堂筆記</a></li>
+                <li><a href = "contact_us.html">與我聯絡</a></li>
+            </ul>
+        </nav>
+        <main>
+            <article>
+                <h2 onmouseout = "out(0)" onmouseover="over(0)" id = "title0">網站開發</h2>
+                <p id = "info0">讓我們一起來開發自己的網站吧!</p>
+                <h3 onmouseout = "out(1)" onmouseover="over(1)" id = "title1">HTML</h3>
+                <p id = "info1">HyperText Markup Language 掌管網頁基本架構</p>
+                <h3 onmouseout = "out(2)" onmouseover="over(2)" id = "title2">CSS</h3>
+                <p id = "info2">Cascading Style Sheet 網頁樣式、排版</p>
+                <h3 onmouseout = "out(3)" onmouseover="over(3)" id = "title3">JavaScript</h3>
+                <p id = "info3">動態效果、消費者互動、程式邏輯</p>
+                <h3 onmouseout = "out(4)" onmouseover="over(4)" id = "title4">Deploy</h3>
+                <p id = "info4">將網站部屬上線</p>
+            </article>
+            <aside>
+                <h2>相關資源</h2>
+                <ul  style = "text-align: left;">
+                    <li><a target = "_blank" href = "https://www.w3schools.com/tags/tag_html.asp">W3Schools</a></li>  <!--   target="_blank" 等於  另開新頁   -->
+                    <li><a target = "_blank" href = "https://html.spec.whatwg.org/">W3C國際標準組織</a></li>
+                    <li><a target = "_blank" href = "https://developer.mozilla.org/zh-TW/docs/Web/HTML">MS Learn</a></li>
+                </ul>
+            </aside>
+        </main>
+        <footer>
+            <p>整理 : YuHsin Chang</p>
+        </footer>
+    </body>
+</html>

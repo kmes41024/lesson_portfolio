@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html style="background-color:#FFFFDF">
+    <head>
+        <meta charset="utf-8">
+        <title>Eat</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <script>
+        var randomChildNumber;
+        var imgName;
+        var check, nowCheck;
+        var timer;
+        var numberOfListItem;
+        var foodPicture = ["ramen.jpg", "rice.jpg", "dumpling.jpg"];
+        var foodName = ["拉麵", "滷肉飯", "水餃"];
+        var foodDetial = [["436.2 kcal", "100元", "醬油拉麵、味噌拉麵、豚骨拉麵、鹽味拉麵、地域拉麵都很讚唷~"],
+        ["500 kcal", "50元", "是一種淋上含有煮熟碎豬肉或炒香肉燥及醬油滷汁的白飯菜餚"],
+        ["355.7 kcal", "80元", "是一種源自中國的一種以麵皮包餡、形如半月或元寶形的食物"]]
+
+
+        function chooseFood()
+        {
+            numberOfListItem = $("li").length;
+            var tmp = Math.floor(Math.random() * numberOfListItem);
+            while(randomChildNumber == tmp) 
+                tmp = Math.floor(Math.random() * numberOfListItem);
+            randomChildNumber = tmp;
+
+            check = 5 * numberOfListItem + randomChildNumber;
+            nowCheck = 0;
+            console.log(foodPicture[randomChildNumber]);
+            //console.log("check:" + check);
+            timer = window.setInterval("shift()",100); 
+        }
+        
+        function shift()
+        {
+            if(nowCheck > check)
+                window.clearInterval(timer); 
+            else
+            {
+                document.getElementById('foodImg').setAttribute('src', foodPicture[nowCheck % numberOfListItem]);
+                $("h1").text($("li").eq(nowCheck % numberOfListItem).text());
+                nowCheck++;
+            }
+
+        }
+
+        function showDetail( e )
+		{
+            document.getElementById('detail').style.display = 'block';
+            var info = "熱量: " + foodDetial[randomChildNumber][0] + "<br><br>價格: " + foodDetial[randomChildNumber][1] + "<br><br>介紹: " + foodDetial[randomChildNumber][2];
+            document.getElementById("content").innerHTML = info;
+		}
+
+        function displayDetail()
+        {
+            document.getElementById('detail').style.display = 'none';
+        }
+    </script>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="main.js" async defer></script> <!--在安全的情況(全部載完後)才去跑main.js-->
+        
+        <h1 id = "food">?</h1>
+        <input type="button" value="今天晚上吃什麼?" onclick = "chooseFood()">
+        <ul>
+            <li>拉麵</li>
+            <li>滷肉飯</li>
+            <li>水餃</li>
+        </ul>
+
+        <img src="" width="400px" id = "foodImg" onmouseover = "showDetail()" onmouseout = "displayDetail()">
+
+        <div style = "margin-top:30px;">
+            <div style = "display:none; background-color:#97CBFF;height:150px;width:450px;margin:0px auto;text-align:left;padding:10px 20px 20px 20px;border-radius:30px;left: 50%;" id = "detail">
+                <p id = "content"></p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html style="background-color:#ECFFFF">
+    <head>
+        <meta charset="utf-8">
+        <title>Schedule</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <script>
+        /*function over(rowNum)
+        {
+            console.log('in row: ' + rowNum);
+        }
+
+        function out(rowNum)
+        {
+            console.log('out row: ' + rowNum);
+        }*/
+    </script>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="topic.js" async defer></script> <!--在安全的情況(全部載完後)才去跑main.js-->
+        <script src="main.js" async defer></script>
+        
+        <div>
+            <input type="date" id="date">&nbsp&nbsp&nbsp
+            <input  type="radio" name="choice" value="year" checked>顯示年份
+            <input  type="radio" name="choice" value="noyear">不顯示年份
+            <span style = "color:red">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp*預設日期為當天日期</span>
+        </div>  
+        
+        <h1>社團課程時間表</h1>
+        <table id="courseTable"></table>
+    </body>
+</html>

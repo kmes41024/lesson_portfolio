@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "utf-8">
+      <title>你也可以是畫家</title>
+      <style type = "text/css">
+		 #block1 { width: 400px;
+			       border: 1px solid #999999;
+				   border-collapse: collapse }
+		 #block2 { width: 400px;
+			       border: 1px solid #999999;
+				   border-collapse: collapse }
+		 #block3 { width: 400px;
+			       border: 1px solid #999999;
+				   border-collapse: collapse }
+		 #block4 { width: 200px;
+				   border-collapse: collapse }
+		 td      { width: 4px; height: 4px; margin: 0px; padding: 0px; background-color:white;}
+		 span    { font-size:50px; }
+		 #tablebody2{ width:400px; height:400px; }
+		 #start  { border: 3px solid navy;
+				   padding: 5px 20px;
+                   background: lightcyan;
+				   width: 100px;
+				   text-align: center;
+				   border-radius: 15px;
+				   margin-bottom: 20px;
+				   border-radius: 25px; }
+      </style>
+      <script>
+	    var interval = null;
+		var count = 59;
+		
+		function run()
+		{  
+		   var t2 = document.getElementById( "tablebody2" );
+		   var side = 100;
+		   t2.innerHTML = "";
+		   for ( var i = 0; i < side; ++i )
+		   {
+			  var row = document.createElement( "tr" );
+			  for ( var j = 0; j < side; ++j )
+			  {
+				 var cell = document.createElement( "td" );
+				 row.appendChild( cell );
+			  }
+			  t2.appendChild( row );
+		   }
+		   
+		   var pic = Math.floor( Math.random()*14)+1 ;
+		   var picture = document.getElementById('tablebody1');
+		   
+		   picture.innerHTML = "<img src = '" + pic + ".jpg' style = 'height:400px;'>";
+		   console.log(picture.innerHTML);
+		   if ( interval )
+			  return;
+		   interval = window.setInterval( "countdown()", 1000 );
+		}
+		
+		function countdown()
+		{
+			if(count <= 0)
+		   {
+			window.clearInterval( interval );
+			interval = null;
+		   }
+		   var num = document.getElementById('count');
+		   num.innerHTML = count;
+		   if(count > 0)
+		   {
+			count = count - 1;
+		   }
+		   else
+		   {
+			count = 60;
+		   }
+		}
+		
+		function processMouseMove( e )
+		{
+			
+		   var c = document.getElementById('color').value;
+		   if ( e.target.tagName.toLowerCase() == "td" )
+		   {
+			  if ( e.ctrlKey )  //erase
+			  {
+				 e.target.style.background = "white";
+			  }
+			  if ( e.shiftKey ) //draw
+			  {
+				 e.target.style.background = c;
+			  }
+		   }
+		}
+		
+		function createCanvas()
+		{
+		   var obtn = document.getElementById('start');
+		   obtn.addEventListener( "click", run, false );
+		   document.getElementById( "tablebody2" ).addEventListener( "mousemove", processMouseMove, false );
+		}
+		window.addEventListener( "load", createCanvas, false );
+	  </script>
+   </head>
+   <body style="background-color:#FFB7DD">
+	  <table>
+		<tr>
+			<td id = "block1" align="center">  
+				<div id = "tablebody1"></div>
+			</td>
+			
+			<td align="center">
+				<form action = "#" id = "block4">
+					<input id = "start" type = "button" value = "start">
+				</form>
+				<span id = "count" align="center">60</span>
+			</td>
+			
+			<td id = "block2">
+				<div id = "tablebody2"></div>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td id = "block3">
+				Hold <em>Shift</em> to draw. Hold <em>Ctrl</em> to draw erase.
+				<p>
+					<input type = "color" id = "color">
+				</p>
+			</td>
+		</tr>
+	  </table>
+   </body>
+</html>

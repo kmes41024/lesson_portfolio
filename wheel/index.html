@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Wheel</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <script>
+        var t = setInterval("driveCar()",100);
+        var t2 = setInterval("driveCar2()",50);
+        var t3 = setInterval("boardMove()",90);
+        var t3 = setInterval("peopleMove()",300);
+        function driveCar(){
+            var x = parseFloat(document.getElementById("car1").style.left);
+            x = x + 20;
+            if (x > 1650)
+                x = -450;
+            document.getElementById("car1").style.left = x + "px";
+        }
+
+        function driveCar2(){
+            var x = parseFloat(document.getElementById("car2").style.left);
+            x = x - 20;
+            if (x < -450)
+                x = 1200;
+            document.getElementById("car2").style.left = x + "px";
+        }
+
+        function boardMove()
+        {
+            var x = parseFloat(document.getElementById("boardBoy").style.left);
+            x = x - 20;
+            if (x < -450)
+                x = 1200;
+            document.getElementById("boardBoy").style.left = x + "px";
+        }
+
+        function peopleMove()
+        {
+            var x = parseFloat(document.getElementById("walkBoy").style.left);
+            x = x + 20;
+            if (x > 1400)
+                x = -450;
+            document.getElementById("walkBoy").style.left = x + "px";
+        }
+    </script>
+    <body>
+        <div style="position: absolute;width:100%; height:60%">
+            <div style = "background-color: #F75000; height:697px;width:100%; margin-left:-10px;position: absolute;"></div>
+            <div style = "background-color: #97CBFF; height:400px;width:100%; margin-top: -10px;margin-left:-10px;position: absolute;"></div>
+            <div style = "background-color: #8E8E8E; height:200px;width:100%; margin-top: 305px;margin-left:-10px;position: absolute;"></div>
+            <div style = "background-color: white;height:10px;width:10%; margin-top:400px;position: absolute;"></div>
+            <div style = "background-color: white;height:10px;width:10%; margin-top:400px;margin-left:15%;position: absolute;"></div>
+            <div style = "background-color: white;height:10px;width:10%; margin-top:400px;margin-left:35%;position: absolute;"></div>
+            <div style = "background-color: white;height:10px;width:10%; margin-top:400px;margin-left:55%;position: absolute;"></div>
+            <div style = "background-color: white;height:10px;width:10%; margin-top:400px;margin-left:75%;position: absolute;"></div>
+            <div style = "background-color: white;height:10px;width:10%; margin-top:400px;margin-left:95%;position: absolute;"></div>
+        </div>
+        <div style="position:absolute;" id="clouds">
+            <div id = "cloud" style="margin:50px 0px 0px 0px;"></div>
+            <div id = "cloud" style="margin:-75px 0px 0px 25px;"></div>
+            <div id = "cloud" style="margin:-50px 0px 0px 60px;"></div>
+            <div id = "cloud" style="margin:-25px 0px 0px 85px;"></div>
+            <div id = "cloud" style="margin:-38px 0px 0px 25px;"></div>
+            <div id = "cloud" style="margin:-50px 0px 0px 60px;"></div>
+            <div id = "cloudEye" style="margin:-60px 0px 0px 40px;"></div>
+            <div id = "cloudEye" style="margin:-10px 0px 0px 80px;"></div>
+            <div id = "cloudMouth" style="margin:15px 0px 0px 60px;"></div>
+        </div>
+        <div style="position:absolute;margin-left:300px;margin-top: 20px;" id="clouds">
+            <div id = "cloud" style="margin:50px 0px 0px 0px;"></div>
+            <div id = "cloud" style="margin:-75px 0px 0px 25px;"></div>
+            <div id = "cloud" style="margin:-50px 0px 0px 60px;"></div>
+            <div id = "cloud" style="margin:-25px 0px 0px 85px;"></div>
+            <div id = "cloud" style="margin:-38px 0px 0px 25px;"></div>
+            <div id = "cloud" style="margin:-50px 0px 0px 60px;"></div>
+            <div id = "cloudEye" style="margin:-55px 0px 0px 40px;border-radius: 0px 0px 10px 10px;width:10px;height:7px"></div>
+            <div id = "cloudEye" style="margin:-8px 0px 0px 80px;border-radius: 0px 0px 10px 10px;width:10px;height:7px"></div>
+            <div style="margin:20px 0px 0px 57px;background-color: palevioletred;width:20px;height:5px"></div>
+        </div>
+        <div style="position:absolute;margin-left:700px;margin-top: 0px;" id="clouds">
+            <div id = "cloud" style="margin:50px 0px 0px 0px;"></div>
+            <div id = "cloud" style="margin:-75px 0px 0px 25px;"></div>
+            <div id = "cloud" style="margin:-50px 0px 0px 60px;"></div>
+            <div id = "cloud" style="margin:-25px 0px 0px 85px;"></div>
+            <div id = "cloud" style="margin:-38px 0px 0px 25px;"></div>
+            <div id = "cloud" style="margin:-50px 0px 0px 60px;"></div>
+            <div id = "cloudEye" style="margin:-50px 0px 0px 40px;"></div>
+            <div id = "cloudEye" style="margin:-10px 0px 0px 80px;"></div>
+            <div id = "cloudMouth" style="margin:10px 0px 0px 60px;width:10px;"></div>
+            <div id = "cloudMouth" style="margin:-7px 0px 0px 62px;background-color: aqua;width:6px;height:4px"></div>
+            <div style="margin:-35px 0px 0px 35px;width:15px;height:5px;background-color: black;"></div>
+            <div style="margin:-5px 0px 0px 80px;width:15px;height:5px;background-color: black;"></div>
+        </div>
+        <div style="position:absolute;margin-left:1300px;margin-top: 30px;" id="clouds">
+            <div id = "cloud" style="margin:50px 0px 0px 0px;"></div>
+            <div id = "cloud" style="margin:-75px 0px 0px 25px;"></div>
+            <div id = "cloud" style="margin:-50px 0px 0px 60px;"></div>
+            <div id = "cloud" style="margin:-25px 0px 0px 85px;"></div>
+            <div id = "cloud" style="margin:-38px 0px 0px 25px;"></div>
+            <div id = "cloud" style="margin:-50px 0px 0px 60px;"></div>
+            <div>
+                <div id = "glassesOut" style = "margin: -60px 0px 0px 35px"></div>
+                <div id = "glassesOut" style = "margin: -24px 0px 0px 75px"></div>
+                <div style = "margin: -13px 0px 0px 55px;width:25px;height:5px;background-color: rgb(69, 0, 154);"></div>
+                <div id = "glassesIn" style = "margin: -12px 0px 0px 39px"></div>
+                <div id = "glassesIn" style = "margin: -16px 0px 0px 79px"></div>
+            </div>
+            <div id = "cloudEye" style="margin:-12px 0px 0px 43px;height:8px;width:8px;"></div>
+            <div id = "cloudEye" style="margin:-8px 0px 0px 83px;height:8px;width:8px;"></div>
+            <div id = "cloudMouth" style="margin:15px 0px 0px 63px;border-radius:10px 10px 10px 10px;background-color: #FF0080	;"></div>
+        </div>
+        <div style="position: absolute;left:0px;">
+            <div id = "car2" style="position: absolute;left:0px;">
+                <div style = "margin:140px 0px 0px 0px;">
+                    <div id = "helmet"></div>
+                    <div id = "face"></div>
+                    <div id = "eye"></div>
+                </div>
+                <div style = "margin:-200px 0px 0px 0px;">
+                    <div id="rect4"></div>
+                    <div style = "margin-top:-300px">
+                        <div id="rect3" ></div>
+                        <div id="rect2">
+                            <p style= "color:white;font-size:78px;font-weight: bold;margin:10px 0px 0px 155px;" >1</p>
+                        </div>
+                    </div>
+                </div>
+                <img id = "wheel" src="wheel-md.png" style="height:90px;width:90px">
+                <img id = "wheel" src="wheel-md.png" style="height:90px;width:90px">
+            </div>
+            <div id = "car1" style="position: absolute;left:700px;">
+                <div id="rect">
+                    <div id="window" style = "margin: 30px 0px 10px 20px;"></div>
+                    <div id="window" style = "margin: 30px 20px 10px 130px;"></div>
+                    <div id="window" style = "margin: 30px 20px 10px 240px;"></div>
+                    <div>
+                        <img src="boy2.jpg" id="person" style="margin: 47px 0px 0px 29px;width:60px;height:60px">
+                    </div>
+                    <div>
+                        <img src="girl.jpg" id="person" style="margin: 49px 0px 160px 145px;height:60px;width:50px">
+                    </div>
+                    <div>
+                        <img src="boy.jpg" id="person" style="margin: 36px 0px 0px 232px;width:90px;height:90px">
+                    </div>
+                </div>
+                
+                <img src="wheel-md.png" id = "wheel">
+                <img src="wheel-md.png" id = "wheel">
+            </div>
+            <div style="position: absolute;left:300px;" id = "walkBoy">
+                <img src="walkMan.gif" style="margin-top:290px;height:300px;width:300px">
+            </div>
+            <div style="position: absolute;left:70px;" id = "boardBoy">
+                <img src="boardMan.png" style="height:250px;width:250px;margin-top:450px;">
+            </div>
+        </div>
+    </body>
+</html>

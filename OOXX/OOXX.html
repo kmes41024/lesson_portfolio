@@ -1,0 +1,213 @@
+<html style="background-color:rgb(195, 253, 231)">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>OOXX</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="">
+		<link rel="stylesheet" href="jquery-ui.css"/>
+		<script src="jquery-1.9.1.js"></script>
+		<script src="jquery-ui.js"></script>
+		<style>
+			td
+			{
+				background-color:#039be5;
+				width:100px;
+				height:100px;
+				color:white;
+				font-size:50px;
+				text-align:center;
+			}
+		</style>
+		<script>
+			var player = "O";
+			var computer = "X";
+			var chess = new Array(9);		//用來存每格被下的棋
+			var turn;
+
+			function newGame()				//初始遊戲
+			{
+				for(var i = 0; i < 9; i++)
+				{
+					chess[i] = '-';
+					document.getElementById("box"+i).innerHTML = "";
+				}
+				turn = Math.floor(Math.random()*2); 	//0 = computer || 1 = player
+
+				$(function() {					//彈跳視窗
+					$( "#dialog" ).dialog({
+						modal: true,           //為true時 沒辦法點遠原畫面的東西(是否為強制視窗)
+						buttons: {              // 定義按鈕與其回呼函數等 (陣列或物件)
+							X: function() {
+								player="X";
+								computer="O";
+								$( this ).dialog( "close" );
+								if(turn == 0)
+								{
+									computerPlay();
+								}
+							},
+							O:function()
+							{
+								player = "O";
+								computer = "X";
+								$( this ).dialog( "close" );
+								if(turn == 0)
+								{
+									computerPlay();
+								}
+							}
+						}
+					});
+				});
+			}
+
+			function computerPlay()				//電腦下棋
+			{
+				var flag = 0;
+				var place;
+				while(flag == 0)
+				{
+					place = Math.floor(Math.random()*9);			//產生0~8隨機數
+					if(chess[place] != 'O' && chess[place] != 'X')		//判斷隨機數產生的位置是否已經被下過
+					{
+						document.getElementById("box"+place).innerHTML = computer;
+						chess[place] = computer;
+						flag = 1;
+					}
+				}
+				
+				if(isWin(computer) == true)			//判斷是否連線
+				{
+					result("computer");
+				}
+				else if(isFull() == true)			//判斷棋盤是否已被下滿
+				{
+					result("tie");
+				}
+			}
+
+			function playerPlay(place)			//玩家下棋
+			{
+				if(chess[place] != 'O' && chess[place] != 'X')
+				{
+					document.getElementById("box"+place).innerHTML = player;
+					chess[place] = player;
+
+					if(isWin(player) == true)		//判斷是否連線
+					{
+						result("player");
+					}
+					else if(isFull() == true)		//判斷棋盤是否已被下滿
+					{
+						result("tie");
+					}
+					else							//玩家結束後若沒有連線或是造成平手，則輪到電腦下棋
+					{
+						computerPlay();
+					}
+				}
+			}
+
+			function isFull()		//判斷棋盤是否已被下滿
+			{
+				for(var i = 0; i < 9; i++)
+				{
+					if(chess[i] != 'X' && chess[i] != 'O')
+					{
+						return false;
+					}
+				}
+				return true;
+			}
+
+			function isWin(symbol)		//判斷是否連線
+			{
+				//直的
+				for(var i = 0; i < 3; i++)
+				{
+					var count = 0;
+					for(var j = 0; j < 3; j++)
+					{
+						if(chess[i + 3 * j] == symbol)
+						{
+							count++;
+						}
+					}
+
+					if(count == 3)
+					{
+						return true;
+					}
+				}
+
+				//橫的
+				for(var i = 0; i < 9; i = i + 3)
+				{
+					var count = 0;
+					for(var j = 0; j < 3; j++)
+					{
+						if(chess[i + j] == symbol)
+						{
+							count++;
+						}
+					}
+					if(count == 3)
+					{
+						return true;
+					}
+				}
+
+				//斜的
+				if(chess[0] == symbol && chess[4] == symbol && chess[8] == symbol)
+				{
+					return true;
+				}
+				if(chess[2] == symbol && chess[4] == symbol && chess[6] == symbol)
+				{
+					return true;
+				}
+			}
+
+			function result(winner)
+			{
+				if(winner == "computer")
+				{
+					window.alert("你輸了!下次再努力!");
+				}
+				else if(winner == "player")
+				{
+					window.alert("恭喜!你贏了!");
+				}
+				else
+				{
+					window.alert("這局平手!");
+				}
+				newGame();
+			}
+
+			window.addEventListener("load",newGame,false);
+		</script>
+    </head>
+    <body>
+		<div id="dialog" title="請選擇你的符號"></div>
+		<table height="300px" width="300px">
+			<tr>
+				<td id="box0" onclick="playerPlay(0)"></td>
+				<td id="box1" onclick="playerPlay(1)"></td>
+				<td id="box2" onclick="playerPlay(2)"></td>
+			</tr>
+			<tr>
+				<td id="box3" onclick="playerPlay(3)"></td>
+				<td id="box4" onclick="playerPlay(4)"></td>
+				<td id="box5" onclick="playerPlay(5)"></td>
+			</tr>
+			<tr>
+				<td id="box6" onclick="playerPlay(6)"></td>
+				<td id="box7" onclick="playerPlay(7)"></td>
+				<td id="box8" onclick="playerPlay(8)"></td>
+			</tr>
+		</table>
+	</body>
+</html>

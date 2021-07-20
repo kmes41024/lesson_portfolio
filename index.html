@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>myBlog</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+		</style>
+	</head>
+	<script>
+		function sendData()
+		{
+			if(document.getElementById('name').value == "" || document.getElementById('email').value == "")
+				alert("請檢查Name和email是否都正確填寫了");
+			else
+			{
+				alert("謝謝您的填寫~");
+				document.getElementById('name').value = "";
+				document.getElementById('email').value = "";
+				document.getElementById('text').value = "";
+				document.getElementById('message').value = "";
+			}
+		}
+	</script>
+	<body class="is-preload">
+		
+		<!-- Wrapper-->
+			<div id="wrapper">
+
+				<!-- Nav #4a改連到FB 底色改掉 增加第五個選項-->
+					<nav id="nav">
+						<a href="#" class="icon solid fa-home"><span>Home</span></a>
+						<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
+						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
+						<a href="http://www.facebook.com/la07su09/" class="icon brands fa-facebook"><span>Facebook</span></a>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Me 姓名、學號、相片-->
+							<article id="home" class="panel intro">
+								<header>
+									<h1>張瑀芯</h1>
+									<p>1073320</p>
+								</header>
+								<a href="#work" class="jumplink pic">
+									<span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
+									<img src="images/myphoto2.gif" alt=""/>
+								</a>
+							</article>
+
+						<!-- Work 放小練習結果的連結&截圖 可另外做:滑鼠移動到圖片上有個半透明的說明-->
+							<article id="work" class="panel">
+								<header>
+									<h2>上課練習</h2>
+								</header>
+								<p>
+									網站程式設計實務練習作品集
+								</p>
+								<section>
+									<div class="row">
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="box/box_model.html" class="image fit" target="blank"><img src="images/box.PNG" alt="box" style = "width:233px;height:175px;"></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="practice/index.html" class="image fit" target="blank"><img src="images/practice.PNG" alt="practice" style = "width:233px;height:175px;"></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="schedule/index.html" class="image fit" target="blank"><img src="images/schedule.PNG" alt="schedule" style = "width:233px;height:175px;"></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="HTML_CSS/index.html" class="image fit" target="blank"><img src="images/HTML_CSS.PNG" alt="HTML_CSS" style = "width:233px;height:175px;"></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="eat/index.html" class="image fit" target="blank"><img src="images/eat.PNG" alt="eat" style = "width:233px;height:175px;"></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="wheel/index.html" class="image fit" target="blank"><img src="images/wheel.PNG" alt="wheel" style = "width:233px;height:175px;"></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="bubble/index.html" class="image fit" target="blank"><img src="images/bubble.PNG" alt="bubble" style = "width:233px;height:175px;"></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="calculate/calculate.html" class="image fit" target="blank"><img src="images/calculate.PNG" alt="calculate" style = "width:233px;height:175px;"></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="gauss/gauss.html" class="image fit" target="blank"><img src="images/guess.PNG" alt="gauss" style = "width:233px;height:175px;"></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="draw/draw.html" class="image fit" target="blank"><img src="images/draw.PNG" alt="draw" style = "width:233px;height:175px;"></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="OOXX/OOXX.html" class="image fit" target="blank"><img src="images/OOXX.PNG" alt="OOXX" style = "width:233px;height:175px;"></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="blog/index.html" class="image fit" target="blank"><img src="images/blog.PNG" alt="blog" style = "width:233px;height:175px;"></a>
+										</div>
+									</div>
+								</section>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact" class="panel">
+								<header>
+									<h2>Contact Me</h2>
+								</header>
+								<form action="#" method="post">
+									<div>
+										<div class="row">
+											<div class="col-6 col-12-medium">
+												<input type="text" name="name" placeholder="Name*" id="name"/>
+											</div>
+											<div class="col-6 col-12-medium">
+												<input type="text" name="email" placeholder="Email*" id="email"/>
+											</div>
+											<div class="col-12">
+												<input type="text" name="subject" placeholder="Subject" id="text"/>
+											</div>
+											<div class="col-12">
+												<textarea name="message" placeholder="Message" rows="6" id="message"></textarea>
+											</div>
+											<div class="col-12">
+												<input type="button" value="Send Message" onclick = "sendData()"/>
+											</div>
+										</div>
+									</div>
+								</form>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<div id="footer" style="color:grey;">
+						<ul class="copyright"  style="color:grey;">
+							<li>&copy; Untitled.</li><li>Design: &nbsp<a style="color:rgb(64, 63, 63);">yschang</a></li>
+						</ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,98 @@
+@charset "utf-8";
+body {
+	font-weight: bold ;
+	text-align: center ;
+}
+li.BlackBlock {
+	background: #000 ;
+}
+
+li.RedBlock {
+	background: #F00 ;
+}
+
+li.WinBlock {
+	border: 2px solid #000;
+	background: #99C ;
+}
+
+li.MiddleWord {
+	font-size: 30px ;
+}
+
+.roundabout-holder { 
+	padding: 0 ; 
+	height: 200px ; 
+	list-style: none ; 
+	width: 600px ;
+}
+
+.roundabout-moveable-item { 
+	height: 60px; 
+	width: 60px; 
+	cursor: pointer;
+	border: 2px solid #000;
+	color: #FFF ;
+	font-size: 50px ;
+}
+   
+.roundabout-in-focus { 
+	cursor: auto;
+}
+
+.WhiteBlock {
+	border: 2px solid #000 ;
+}
+
+.RedNumber {
+	border: 2px solid #000 ;
+	background-color: #F00 ;
+	color: #FFF ;
+	width: 30px ;
+}
+
+.BlackNumber {
+	border: 2px solid #000 ;
+	background-color: #000 ;
+	color: #FFF ;
+	width: 30px ;
+}
+
+.MoneyTable .Five {
+	border: 2px solid #000 ;
+	color: #FFF ;
+	background-color: #999 ;
+}
+
+.MoneyTable .Fifty {
+	border: 2px solid #000 ;
+	color: #000 ;
+	background-color: #FF0 ;
+}
+
+.MoneyTable .Hundred {
+	border: 2px solid #000 ;
+	color: #000 ;
+	background-color: #09F ;
+}
+
+.NumberTable .Five {
+	border: 2px solid #000 ;
+	color: #FFF ;
+	background-color: #999 ;
+	width: 30px ;
+}
+
+.NumberTable .Fifty {
+	border: 2px solid #000 ;
+	color: #000 ;
+	background-color: #FF0 ;
+	width: 30px ;
+}
+
+.NumberTable .Hundred {
+	border: 2px solid #000 ;
+	color: #000 ;
+	background-color: #09F ;
+	width: 30px ;
+}
